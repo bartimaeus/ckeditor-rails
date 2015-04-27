@@ -23,7 +23,7 @@ Then run `bundle install`
 
 Add to your `app/assets/javascripts/application.js` after `//= require jquery_ujs` to work with jQuery
 
-    //= require ckeditor-jquery
+    //= require ckeditor-sprockets
 
 ### Modify form field for CKEditor
 
