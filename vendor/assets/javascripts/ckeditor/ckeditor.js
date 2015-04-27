@@ -19798,8 +19798,11 @@ For licensing, see LICENSE.md or http://ckeditor.com/license
           k = [];
         c.on("stylesSet", function(b) {
           if (b = b.data.styles) {
-            for (var a, h, d, e = 0, l = b.length; e < l; e++) if (a = b[e], !(c.blockless && a.element in CKEDITOR.dtd.$block) && (h = a.name, a = new CKEDITOR.style(a), !c.filter.customConfig || c.filter.check(a))) a._name = h, a._.enterMode = j.enterMode, a._.type = d = a.assignedTo || a.type, a._.weight = e + 1E3 * (d == CKEDITOR.STYLE_OBJECT ? 1 : d == CKEDITOR.STYLE_BLOCK ? 2 : 3),
-            f[h] = a, i.push(a), k.push(a);
+            for (var a, h, d, e = 0, l = b.length; e < l; e++) {
+              if (! b[e]) continue;
+              if (a = b[e], !(c.blockless && a.element in CKEDITOR.dtd.$block) && (h = a.name, a = new CKEDITOR.style(a), !c.filter.customConfig || c.filter.check(a)))
+                a._name = h, a._.enterMode = j.enterMode, a._.type = d = a.assignedTo || a.type, a._.weight = e + 1E3 * (d == CKEDITOR.STYLE_OBJECT ? 1 : d == CKEDITOR.STYLE_BLOCK ? 2 : 3), f[h] = a, i.push(a), k.push(a);
+            }
             i.sort(function(a, b) {
               return a._.weight - b._.weight
             })
